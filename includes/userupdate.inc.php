@@ -8,14 +8,19 @@
         try {
             require_once 'dbh.inc.php';
 
-            $query = "INSERT INTO customers (fname, pwd, email) VALUES (?, ?, ?);";
+            $query = "UPDATE customers SET fname = :fname, pwd = :pwd, email = :email WHERE id =4";
             $stmt = $pdo->prepare($query);
-            $stmt->execute([$fname, $pwd, $email]);
+
+            $stmt->bindParam(":fname", $fname);
+            $stmt->bindParam(":pwd", $pwd);
+            $stmt->bindParam(":email", $email);
+
+            $stmt->execute();
 
             $pdo = null;
             $stmt = null;
 
-            header("Location: ../index.php");
+            header("Location: ../updateform.php");
 
             die();
 
@@ -26,5 +31,5 @@
 
 
     } else {
-        header("Location: ../index.php");
+        header("Location: ../updateform.php");
     }
