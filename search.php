@@ -37,19 +37,29 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="search.css">
 </head>
-<body>
-    <h3>Search results:</h3>
+<body class="body_">
 
-    <?php
-        if(empty($results)){
-            echo "<div>";
-            echo "<p>There are no results</p>";
-            echo "</div>";
-        }
-            else{
-                var_dump($results);
+    <section class="search-container">  
+        <h3>Search results:</h3>
+        <?php
+            if(empty($results)){
+                echo "<div>";
+                echo "<p>There are no results</p>";
+                echo "</div>";
             }
-    ?>
-    
+                else{
+                    foreach($results as $row){
+                        ?>
+                            <div>
+                                <h4> <?php echo htmlspecialchars($row["username"]); ?> </h4>
+                                <p> <?php echo htmlspecialchars($row["comment_text"]); ?> </p>
+                                <p> <?php echo htmlspecialchars($row["created_at"]); ?> </p>
+                            </div>
+                         <?php   
+                    }
+                }
+        ?>
+    </section>
+
 </body>
 </html>
