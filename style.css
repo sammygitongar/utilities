@@ -16,7 +16,7 @@ body{
 h3{
     margin-top: 50px;
     font-size: 28px;
-    color: rgba(24, 41, 24, 0.849);
+    color: rgba(21, 22, 21, 0.849);
     margin-bottom: 20px;
 
 }
@@ -25,6 +25,29 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.search-form{
+    display: flex;
+}
+
+#searchform{
+    display: flex;
+    flex-direction: row;
+}
+
+#searchform input{
+    margin: 15px;
+    padding: 10px;
+}
+
+#searchform label{
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#searchform button{
+    margin: 0;
 }
 
 form input{
